@@ -1,0 +1,30 @@
+name: cashkingdemo
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter demo project of Cash King.
+environment: 
+  sdk: '>=2.19.3 <3.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: 4.6.5
+  flutter: 
+    sdk: flutter
+  firebase_core: ^2.7.0
+  firebase_remote_config: ^3.0.13
+  google_fonts: ^4.0.3
+  flutter_svg: ^2.0.2
+  html: ^0.15.1
+
+dev_dependencies: 
+  flutter_lints: 2.0.1
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/svg/
