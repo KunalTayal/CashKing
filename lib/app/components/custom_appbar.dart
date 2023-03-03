@@ -17,7 +17,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       height: preferredSize.height,
-      color: Colors.red,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: FractionalOffset.centerLeft,

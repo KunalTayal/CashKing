@@ -19,18 +19,25 @@ class CustomTrendingOfferCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 181,
-      height: 205,
+      margin: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: color,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          Container(
             height: 127,
-            child: Image.network(
-              url,
-              fit: BoxFit.fill,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(12),
+                topRight: Radius.circular(12),
+              ),
+              image: DecorationImage(
+                image: NetworkImage(url),
+                fit: BoxFit.fill,
+              ),
             ),
           ),
           Padding(
@@ -54,7 +61,7 @@ class CustomTrendingOfferCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.only(left: 12, bottom: 10),
             child: Row(
               children: [
                 SvgPicture.asset('assets/svg/bolt_sign.svg'),
