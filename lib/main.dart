@@ -9,12 +9,12 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     GetMaterialApp(
-      title: "Application",
-      initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
-      theme: ThemeData(
-        textTheme: GoogleFonts.dmSansTextTheme(),
-      )
-    ),
+        title: "Application",
+        initialRoute: AppPages.initial,
+        getPages: AppPages.routes,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          textTheme: GoogleFonts.dmSansTextTheme(),
+        )),
   );
 }
