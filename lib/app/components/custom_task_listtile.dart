@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:html/parser.dart';
 import 'package:get/get.dart';
 
 class CustomTaskListtile extends StatefulWidget {
@@ -64,7 +65,8 @@ class _CustomTaskListtileState extends State<CustomTaskListtile> {
               color: const Color(0xff1A1A1A),
               fontSize: 16,
               fontWeight: FontWeight.w500,
-              decoration: widget.isCompleted ? TextDecoration.lineThrough : null,
+              decoration:
+                  widget.isCompleted ? TextDecoration.lineThrough : null,
             ),
           ),
           trailing: Container(
@@ -88,10 +90,12 @@ class _CustomTaskListtileState extends State<CustomTaskListtile> {
               ),
             ),
           ),
-          childrenPadding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+          childrenPadding:
+              const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+          expandedCrossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.description,
+              "${parse(widget.description).documentElement?.text}",
               style: const TextStyle(
                 color: Color(0xff9E9E9E),
                 fontSize: 12,
