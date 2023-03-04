@@ -6,7 +6,7 @@ class CustomTrendingOfferCard extends StatelessWidget {
   final String url;
   final String title;
   final num amount;
-  final num lead;
+  final String lead;
   final void Function() onPressed;
   const CustomTrendingOfferCard({
     super.key,
@@ -39,9 +39,10 @@ class CustomTrendingOfferCard extends StatelessWidget {
                   topLeft: Radius.circular(12),
                   topRight: Radius.circular(12),
                 ),
+                color: Colors.white,
                 image: DecorationImage(
                   image: NetworkImage(url),
-                  fit: BoxFit.fill,
+                  fit: BoxFit.fitWidth,
                 ),
               ),
             ),
@@ -53,6 +54,8 @@ class CustomTrendingOfferCard extends StatelessWidget {
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             Padding(

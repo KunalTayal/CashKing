@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "165947483771",
+    "project_id": "cashkingdemo",
+    "storage_bucket": "cashkingdemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165947483771:android:206e5476a9dea684f224de",
+        "android_client_info": {
+          "package_name": "com.cashking.kunal.cashkingdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165947483771-jgu1lrp1rtmo23a7hpr6gieuhqfgjj8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBic6vyAKlmLwTI221F38GSmlksryDFPoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165947483771-jgu1lrp1rtmo23a7hpr6gieuhqfgjj8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
