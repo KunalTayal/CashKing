@@ -128,7 +128,7 @@ class OfferPageView extends GetView<OfferPageController> {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: 2,
-                      itemBuilder: (context, index) => CustomTaskListtile(
+                      itemBuilder: (context, index) => const CustomTaskListtile(
                         isCompleted: false,
                         amount: 20,
                         title: 'Install the application',

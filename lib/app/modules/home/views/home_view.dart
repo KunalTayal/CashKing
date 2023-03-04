@@ -204,11 +204,6 @@ class HomeView extends GetView<HomeController> {
           child: Column(
             children: [
               AppBar(
-                // leading: IconButton(
-                //   icon: SvgPicture.asset('assets/svg/drawer_icon.svg'),
-                //   splashRadius: 20,
-                //   onPressed: () {},
-                // ),
                 title: const Text(
                   "Hey Shubham",
                   style: TextStyle(
@@ -488,15 +483,16 @@ class HomeView extends GetView<HomeController> {
                     child: ListView.builder(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       shrinkWrap: true,
-                      itemCount: 5,
+                      itemCount: controller.taskModel.length,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) => CustomTrendingOfferCard(
-                        color: const Color(0xff200114),
-                        url:
-                            "https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg",
-                        title: "Alto's Odysseyz",
-                        amount: 230,
-                        lead: 4687,
+                         color: Color(int.parse(controller
+                          .taskModel[index].customData.dominantColor
+                          .replaceAll('#', '0xff'))),
+                      url: controller.taskModel[index].thumbnail,
+                      title: controller.taskModel[index].title,
+                      amount: controller.taskModel[index].payoutAmt,
+                      lead: controller.taskModel[index].totalLead,
                         onPressed: () {
                           Get.toNamed(Routes.offerPage);
                         },
@@ -524,15 +520,17 @@ class HomeView extends GetView<HomeController> {
                   ),
                   ListView.builder(
                     shrinkWrap: true,
-                    itemCount: 5,
+                    itemCount: controller.taskModel.length,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) => CustomOfferListCard(
-                      color: const Color(0xff200114),
-                      url:
-                          "https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg",
-                      title: "Alto's Odysseyz",
-                      amount: 230,
-                      lead: 4687,
+                      color: Color(int.parse(controller
+                          .taskModel[index].customData.dominantColor
+                          .replaceAll('#', '0xff'))),
+                      url: controller.taskModel[index].thumbnail,
+                      title: controller.taskModel[index].title,
+                      currency: controller.taskModel[index].payoutCurrency,
+                      amount: controller.taskModel[index].payoutAmt,
+                      lead: controller.taskModel[index].totalLead,
                       onPressed: () {
                         Get.toNamed(Routes.offerPage);
                       },

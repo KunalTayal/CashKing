@@ -5,8 +5,9 @@ class CustomOfferListCard extends StatelessWidget {
   final Color color;
   final String url;
   final String title;
+  final String currency;
   final num amount;
-  final num lead;
+  final String lead;
   final void Function() onPressed;
   const CustomOfferListCard({
     super.key,
@@ -16,6 +17,7 @@ class CustomOfferListCard extends StatelessWidget {
     required this.amount,
     required this.lead,
     required this.onPressed,
+    required this.currency,
   });
 
   @override
@@ -40,14 +42,15 @@ class CustomOfferListCard extends StatelessWidget {
               width: 73,
               child: Image.network(
                 url,
-                fit: BoxFit.fill,
+                fit: BoxFit.fitWidth,
               ),
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(left: 12, right: 18),
+                padding: const EdgeInsets.only(left: 12, right: 18,top: 5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
                       title,
@@ -65,7 +68,7 @@ class CustomOfferListCard extends StatelessWidget {
                             side: const BorderSide(color: Color(0xff1185D5)),
                           ),
                           child: Text(
-                            "Get ₹$amount",
+                            "Get $currency$amount",
                             style: const TextStyle(
                               color: Color(0xff1185D5),
                               fontSize: 12,
@@ -82,7 +85,7 @@ class CustomOfferListCard extends StatelessWidget {
                                   SvgPicture.asset('assets/svg/bolt_sign.svg'),
                             ),
                             Text(
-                              "$lead",
+                              lead,
                               style: const TextStyle(
                                 color: Color(0xffFF9E0C),
                                 fontSize: 12,
