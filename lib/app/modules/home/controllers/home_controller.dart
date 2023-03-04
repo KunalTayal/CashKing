@@ -11,7 +11,13 @@ class HomeController extends GetxController {
 
   @override
   Future<void> onInit() async {
-    super.onInit();
     taskModel = taskModelFromJson(await DummyService().fetchDummyTasks());
+    super.onInit();
+  }
+
+  @override
+  void onReady() {
+    update();
+    super.onReady();
   }
 }

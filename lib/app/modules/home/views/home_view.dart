@@ -1,5 +1,6 @@
 import 'package:cashkingdemo/app/components/custom_offer_card.dart';
 import 'package:cashkingdemo/app/components/custom_trending_offer_card.dart';
+import 'package:cashkingdemo/app/modules/offer_page/views/offer_page_view.dart';
 import 'package:cashkingdemo/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -480,24 +481,27 @@ class HomeView extends GetView<HomeController> {
                   SizedBox(
                     height: 216,
                     width: Get.width,
-                    child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      shrinkWrap: true,
-                      itemCount: controller.taskModel.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => CustomTrendingOfferCard(
-                         color: Color(int.parse(controller
-                          .taskModel[index].customData.dominantColor
-                          .replaceAll('#', '0xff'))),
-                      url: controller.taskModel[index].thumbnail,
-                      title: controller.taskModel[index].title,
-                      amount: controller.taskModel[index].payoutAmt,
-                      lead: controller.taskModel[index].totalLead,
-                        onPressed: () {
-                          Get.toNamed(Routes.offerPage);
-                        },
-                      ),
-                    ),
+                    child: GetBuilder<HomeController>(builder: (context) {
+                      return ListView.builder(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        shrinkWrap: true,
+                        itemCount: controller.taskModel.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) =>
+                            CustomTrendingOfferCard(
+                          color: Color(int.parse(controller
+                              .taskModel[index].customData.dominantColor
+                              .replaceAll('#', '0xff'))),
+                          url: controller.taskModel[index].thumbnail,
+                          title: controller.taskModel[index].title,
+                          amount: controller.taskModel[index].payoutAmt,
+                          lead: controller.taskModel[index].totalLead,
+                          onPressed: () {
+                            Get.toNamed(Routes.offerPage);
+                          },
+                        ),
+                      );
+                    }),
                   ),
                   Padding(
                     padding:
@@ -518,24 +522,28 @@ class HomeView extends GetView<HomeController> {
                       ],
                     ),
                   ),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: controller.taskModel.length,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) => CustomOfferListCard(
-                      color: Color(int.parse(controller
-                          .taskModel[index].customData.dominantColor
-                          .replaceAll('#', '0xff'))),
-                      url: controller.taskModel[index].thumbnail,
-                      title: controller.taskModel[index].title,
-                      currency: controller.taskModel[index].payoutCurrency,
-                      amount: controller.taskModel[index].payoutAmt,
-                      lead: controller.taskModel[index].totalLead,
-                      onPressed: () {
-                        Get.toNamed(Routes.offerPage);
-                      },
-                    ),
-                  ),
+                  GetBuilder<HomeController>(builder: (context) {
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: controller.taskModel.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) => CustomOfferListCard(
+                        color: Color(int.parse(controller
+                            .taskModel[index].customData.dominantColor
+                            .replaceAll('#', '0xff'))),
+                        url: controller.taskModel[index].thumbnail,
+                        title: controller.taskModel[index].title,
+                        currency: controller.taskModel[index].payoutCurrency,
+                        amount: controller.taskModel[index].payoutAmt,
+                        lead: controller.taskModel[index].totalLead,
+                        onPressed: () {
+                          Get.to(() => OfferPageView(
+                                index: index,
+                              ));
+                        },
+                      ),
+                    );
+                  })
                 ],
               ),
             ),
