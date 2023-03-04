@@ -1,4 +1,4 @@
-import 'package:cashkingdemo/app/components/custom_appbar.dart';
+import 'package:cashkingdemo/app/components/custom_task_listtile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,7 +13,6 @@ class OfferPageView extends GetView<OfferPageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: Get.height,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: FractionalOffset.centerLeft,
@@ -112,7 +111,7 @@ class OfferPageView extends GetView<OfferPageController> {
                       ],
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(top: 29, bottom: 19),
+                      padding: EdgeInsets.only(top: 20, bottom: 10),
                       child: Divider(
                         thickness: 1,
                       ),
@@ -123,10 +122,23 @@ class OfferPageView extends GetView<OfferPageController> {
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
+                    ),
+                    ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 2,
+                      itemBuilder: (context, index) => CustomTaskListtile(
+                        isCompleted: false,
+                        amount: 20,
+                        title: 'Install the application',
+                        description:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+                      ),
                     )
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
